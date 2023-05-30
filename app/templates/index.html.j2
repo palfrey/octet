@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="container-fluid">
+    <h1>Octet</h1>
+    <p class="important">
+    Events
+      <ul>
+      {% for event in events %}
+      <li><a href="{{url('event', args=(event.id,))}}">{{ event.name}}</a></li>
+      {% endfor %}      
+      </ul>
+    </p>
+  </div>
+{% endblock %}

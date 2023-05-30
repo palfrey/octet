@@ -1,0 +1,27 @@
+{% extends "base.html.j2" %}
+{% block content %}
+
+<div class="container-fluid">
+    <h1>Octet</h1>
+    <p class="important">
+    <a href="{{url('event', args=(contest.event.id,))}}">Back to {{contest.event.name}}</a><br />
+    Performances
+    <table class="table">
+      {% for (group, group_perfs, total) in performances %}
+        {% for performance in group_perfs %}
+        <tr>
+        <td>{{ performance.group.name if performance.index == 1 else ""}}</td>
+        <td>{{ performance.group.director if performance.index == 1 else ""}}</td>
+        <td>{{ performance.song_name}}</td>
+        <td>{{ performance.music_score}}</td>
+        <td>{{ performance.performance_score}}</td>
+        <td>{{ performance.singing_score}}</td>
+        <td>{{ total if performance.index == 1 else ""}}</td>
+        <td>{{ total/1800.0 if performance.index == 1 else ""}}</td>
+        </tr>
+        {% endfor %}      
+      {% endfor %}
+      </table>
+    </p>
+  </div>
+{% endblock %}

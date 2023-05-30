@@ -1,6 +1,7 @@
 pip-tools
 pre-commit
-django
 
+django
 google-api-python-client
 google-auth-oauthlib
+jinja2
