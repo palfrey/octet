@@ -4,33 +4,36 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('app', '0001_initial'),
+        ("app", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='event',
-            name='name',
+            model_name="event",
+            name="name",
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='group',
-            name='name',
+            model_name="group",
+            name="name",
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='organiser',
-            name='name',
+            model_name="organiser",
+            name="name",
             field=models.TextField(unique=True),
         ),
         migrations.AddConstraint(
-            model_name='contest',
-            constraint=models.UniqueConstraint(fields=('event', 'name'), name='contest_event_name'),
+            model_name="contest",
+            constraint=models.UniqueConstraint(
+                fields=("event", "name"), name="contest_event_name"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='event',
-            constraint=models.UniqueConstraint(fields=('organiser', 'name'), name='event_organiser_name'),
+            model_name="event",
+            constraint=models.UniqueConstraint(
+                fields=("organiser", "name"), name="event_organiser_name"
+            ),
         ),
     ]
